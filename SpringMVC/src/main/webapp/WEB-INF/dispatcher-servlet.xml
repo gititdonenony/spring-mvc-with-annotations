@@ -56,4 +56,13 @@
 	</bean>
 	<tx:annotation-driven
 		transaction-manager="hibernateTransactionManager" />
+	<bean
+		class="org.springframework.web.servlet.InternalResourceViewResolver"
+		id="jspResolver">
+		<property name="prefix" value="/WEB-INF/pages/" />
+		<property name="suffix" value=".jsp" />
+
+
+
+	</bean>
 </beans>
