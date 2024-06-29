@@ -41,7 +41,13 @@
 			</props>
 
 		</property>
-
+		<property name="annotatedClasses">
+			<list>
+				<value>
+					com.akhm.dao.model.UserTl
+				</value>
+			</list>
+		</property>
 	</bean>
 	<bean
 		class="org.springframework.orm.hibernate3.HibernateTransactionManager"
