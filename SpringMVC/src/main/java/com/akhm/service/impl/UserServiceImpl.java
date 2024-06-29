@@ -1,17 +1,18 @@
 package com.akhm.service.impl;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.akhm.dao.UserDAO;
 import com.akhm.dao.model.UserTl;
 import com.akhm.dto.UserDTO;
 import com.akhm.service.UserService;
 import com.akhm.utils.FactoryUtils;
 
+@Service
 public class UserServiceImpl implements UserService {
+	@Autowired
 	private UserDAO userDAO;
-
-	public UserServiceImpl(UserDAO userDAO) {
-		this.userDAO = userDAO;
-	}
 
 	public Integer saveUser(UserDTO userDTO) {
 		Integer userId = 0;
