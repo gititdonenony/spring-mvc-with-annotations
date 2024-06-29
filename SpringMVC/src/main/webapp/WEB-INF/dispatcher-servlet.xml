@@ -37,10 +37,17 @@
 				<prop key="hibernate.hbm2ddl.auto">
 					update
 				</prop>
-				
+
 			</props>
 
 		</property>
 
 	</bean>
+	<bean
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager"
+		id="hibernateTransactionManager">
+		<property name="sessionFactory" ref="sessFact" />
+	</bean>
+	<tx:annotation-driven
+		transaction-manager="hibernateTransactionManager" />
 </beans>
