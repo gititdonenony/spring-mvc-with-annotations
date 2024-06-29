@@ -10,4 +10,37 @@
 	http://www.springframework.org/schema/context/spring-context-3.0.xsd
 	http://www.springframework.org/schema/tx
 	http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
+	<context:component-scan base-package="com.akhm" />
+	<bean
+		class="org.springframework.jdbc.datasource.DriverManagerDatasource"
+		id="dataSource">
+		<property name="driverClassName"
+			value="com.mysql.cj.jdbc.Driver" />
+		<property name="url"
+			value="jdbc:mysql://localhost:3306/springdb" />
+		<property name="username" value="root" />
+		<property name="password" value="password123" />
+
+	</bean>
+	<bean
+		class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean"
+		id="sessFact">
+		<property name="dataSource" ref="dataSource" />
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">
+					org.hibernate.dialect.MySQLDialect
+				</prop>
+				<prop key="hibernate.show_sql">
+					true
+				</prop>
+				<prop key="hibernate.hbm2ddl.auto">
+					update
+				</prop>
+				
+			</props>
+
+		</property>
+
+	</bean>
 </beans>
